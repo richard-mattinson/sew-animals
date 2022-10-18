@@ -6,8 +6,8 @@ a:active {
   color: inherit;
 }
 
-.App-header {
-  text-align: center;
+.App{
+  /* text-align: center; */
   background-color: white;
   color: black;
   font-size: calc(10px + 2vmin);
