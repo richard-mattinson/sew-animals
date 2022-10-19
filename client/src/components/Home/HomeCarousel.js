@@ -1,6 +1,6 @@
-import pencilGuineaPigL from "../../assets/pencilGuineaPigL.jpg";
-import maskPenguinL from "../../assets/maskPenguinL.jpg";
-import coinDuckL from "../../assets/coinDuckL.jpg";
+// import pencilGuineaPigL from "../../assets/pencilGuineaPigL.jpg";
+// import maskPenguinL from "../../assets/maskPenguinL.jpg";
+// import coinDuckL from "../../assets/coinDuckL.jpg";
 
 const HomeCarousel = () => {
   return (
@@ -33,7 +33,11 @@ const HomeCarousel = () => {
       </div>
       <div className="carousel-inner">
         <div className="carousel-item active">
-          <img src={pencilGuineaPigL} className="d-block w-100" alt="..." />
+          <img
+            src="https://drive.google.com/uc?id=1HPyHQej4JuEndspEGZMPHcjj4HJ13qy6"
+            className="d-block w-100"
+            alt="..."
+          />
           <div className="carousel-caption d-none d-md-block">
             <h5>Guinea Pig Pencil Case</h5>
             <p>
@@ -42,7 +46,11 @@ const HomeCarousel = () => {
           </div>
         </div>
         <div className="carousel-item">
-          <img src={maskPenguinL} className="d-block w-100" alt="..." />
+          <img
+            src="https://drive.google.com/uc?id=1dLHlYWlWq5HGuHoekpfGOcmztaeSXM87"
+            className="d-block w-100"
+            alt="..."
+          />
           <div className="carousel-caption d-none d-md-block">
             <h5>Penguin Face Mask</h5>
             <p>
@@ -52,7 +60,11 @@ const HomeCarousel = () => {
           </div>
         </div>
         <div className="carousel-item">
-          <img src={coinDuckL} className="d-block w-100" alt="..." />
+          <img
+            src="https://drive.google.com/uc?id=1BXmut2QMWPC5Gy9Z7hxcrP6xss6PGhn_"
+            className="d-block w-100"
+            alt="..."
+          />
           <div className="carousel-caption d-none d-md-block">
             <h5>Duckling Coin Purse</h5>
             <p>

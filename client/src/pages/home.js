@@ -6,9 +6,27 @@ import ProductGrid from "../components/Products/ProductGrid";
 
 const Home = () => {
     const [product, setProduct] = useState([
-      { name: "Guinea Pig Pencil Case", category: "Pencil Cases", id: 1 },
-      { name: "Penguin Face Mask", category: "Face Masks", id: 2 },
-      { name: "Duckling Coin Purse", category: "Coin Purses", id: 3 },
+      {
+        name: "Guinea Pig Pencil Case",
+        image:
+          "https://drive.google.com/uc?id=1de-jH59X4vNkiySh_2CkFAXqvjhw93gs",
+        category: "Pencil Cases",
+        id: 1,
+      },
+      {
+        name: "Penguin Face Mask",
+        image:
+          "https://drive.google.com/uc?id=1a9aPixoUXVaAO50XhDinQ4Pp8F0kfj08",
+        category: "Face Masks",
+        id: 2,
+      },
+      {
+        name: "Duckling Coin Purse",
+        image:
+          "https://drive.google.com/uc?id=1jb5b3bmN3NEj-m8QoQy1z-N11lGfN_Aj",
+        category: "Coin Purses",
+        id: 3,
+      },
     ]);
   return (
     <>
@@ -16,7 +34,7 @@ const Home = () => {
       <HomeWelcome />
       <ProductGrid product={product}/>
 
-      <div className="container m-100">
+      {/* <div className="container m-100">
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis
           sapiente tempora ab cum quasi nam velit, porro illum maiores vitae
@@ -41,7 +59,7 @@ const Home = () => {
           ratione ea molestias quidem aspernatur obcaecati esse omnis! Fuga,
           suscipit!
         </p>
-      </div>
+      </div> */}
     </>
   );
 };

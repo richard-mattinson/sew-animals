@@ -1,22 +1,21 @@
-// import { useState } from "react";
-
-const ProductGrid = ({product}) => {
-  // const [product, setProduct] = useState([
-  //   { name: "Guinea Pig Pencil Case", category: "Pencil Cases", id: 1 },
-  //   { name: "Penguin Face Mask", category: "Face Masks", id: 2 },
-  //   { name: "Duckling Coin Purse", category: "Coin Purses", id: 3 },
-  // ]);
+const ProductGrid = ({ product }) => {
   return (
-  <>
-    <div className="container m-100">
-      {product.map((product) => (
-        <div className="product-card" key={product.id}>
-          <h2>{product.name}</h2>
-          <p>{product.category}</p>
-        </div>
-      ))}
-    </div>
-  </>
+    <>
+      <div className="container product-card">
+        {product.map((product) => (
+          <div className="card" key={product.id}>
+            <img src={product.image} className="card-img-top" alt="..." />
+            <div className="card-body">
+              <h5 className="card-title">{product.name}</h5>
+              <h6 className="card-subtitle mb-2 text-muted">{product.category}</h6>
+              <p className="card-text">
+                Some quick example text to build on the card title and make up the bulk of the card's content.
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </>
   );
 };
 
