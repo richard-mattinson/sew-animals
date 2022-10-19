@@ -42,6 +42,11 @@ a:active {
   /* margin: 100px 50px; */
 }
 
+.sign-in, .sign-up{
+  max-width: 600px;
+  margin: auto
+}
+
 /* @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

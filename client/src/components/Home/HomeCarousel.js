@@ -1,7 +1,3 @@
-// import pencilGuineaPigL from "../../assets/pencilGuineaPigL.jpg";
-// import maskPenguinL from "../../assets/maskPenguinL.jpg";
-// import coinDuckL from "../../assets/coinDuckL.jpg";
-
 const HomeCarousel = () => {
   return (
     <div
