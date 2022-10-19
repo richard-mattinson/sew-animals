@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import Logo from "./assets/sewLogoBig.jpg";
+import Logo from "../../assets/sewLogoBig.jpg";
 
 const Nav = () => {
   return (
@@ -36,17 +36,23 @@ const Nav = () => {
           <span>
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="#">
+                <a
+                  className="nav-link active"
+                  aria-current="page"
+                  href="/account"
+                >
+                  <Link to="/account">
                   <button
                     class="btn btn-lg btn-outline-secondary"
                     type="button"
                   >
                     Login
                   </button>
+                  </Link>
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">
+                <a className="nav-link" href="/account">
                   <button class="btn btn-lg btn-success me-2" type="button">
                     Join
                   </button>

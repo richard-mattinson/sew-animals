@@ -3,7 +3,7 @@
 ## Resources
 - [ERD](https://whimsical.com/sew-animals-erd-GAhyjcjoVUaY7TXiytjCqD)
 - [Wireframes](https://whimsical.com/sew-animals-wireframe-PEyVksJY43zSHX5ZgjKQM4)
-- [API Spec](https://www.notion.so/Sew-Animals-API-Spec-d152c84b422843d4b230e31a10c17384)
+- [API Spec]( https://foul-icicle-89d.notion.site/Sew-Animals-API-Spec-d152c84b422843d4b230e31a10c17384)
 
 ## Overview
 I am going to build a website for homemade accessories store 'Sew Animals'. A user will be able to browse their products, and have a list of favorite animals and themes.
