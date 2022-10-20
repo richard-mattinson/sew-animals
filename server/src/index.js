@@ -14,7 +14,10 @@ app.use(express.urlencoded({ extended: true }));
 
 // Tell express to use your routers here
 const userRouter = require("./routers/user");
+const productRouter = require("./routers/product.js")
+
 app.use("/user", userRouter);
+app.use("/product", productRouter)
 
 // Set the port
 const port = process.env.PORT || 4000;
