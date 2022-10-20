@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import Logo from "../../assets/sewLogoBig.jpg";
+const Logo = "https://drive.google.com/uc?id=1k0BUFLlnXwZ5bhzHhW19uFC0k_722KoK";
 
 const Nav = () => {
   return (
@@ -22,7 +22,7 @@ const Nav = () => {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <form className="d-flex" role="search">
             <input
-              className="form-control me-2"
+              className="form-control me-2 search-bar"
               type="search"
               placeholder="Search"
               aria-label="Search"
@@ -41,7 +41,7 @@ const Nav = () => {
                   aria-current="page"
                   href="/account"
                 >
-                  <Link to="/account">
+                  <Link to="/login">
                   <button
                     class="btn btn-lg btn-outline-secondary"
                     type="button"
@@ -52,7 +52,7 @@ const Nav = () => {
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="/account">
+                <a className="nav-link" href="/register">
                   <button class="btn btn-lg btn-success me-2" type="button">
                     Join
                   </button>
