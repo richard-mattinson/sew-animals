@@ -13,7 +13,25 @@ datasource db {
 
 model User {
   id Int @id @default(autoincrement())
-  email String
+  email String @unique
+  password String @db.VarChar(20)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+}
+
+model Product {
+  id Int @id @default(autoincrement())
+  name String 
+  desciption String
+  category String
+  productImages ProductImage[]
+}
+
+model ProductImage {
+  id Int @id @default(autoincrement())
+  heroImage String
+  thumbImage String
+  detailsImage String
+  productId Int
+  product Product @relation(fields: [productId], references: [id], onDelete: Cascade)
 }
