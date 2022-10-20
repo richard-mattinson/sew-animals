@@ -1,4 +1,5 @@
-const HomeCarousel = () => {
+const HomeCarousel = ({ product }) => {
+  console.log("Carousel", product);
   return (
     <div
       id="carouselExampleCaptions"
