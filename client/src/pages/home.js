@@ -8,18 +8,33 @@ const apiUrl = "http://localhost:4000";
 
 const Home = () => {
   const [product, setProduct] = useState([]);
+  const [loading, setLoading ] = useState(true)
   console.log("Home Product", product);
 
+  const handleLike = (id) => {
+    // POST 
+    // favourite boolean true 
+    // where id: id 
+  }
+
+  // simulating a slow server load to see the loading message
   useEffect(() => {
-    fetch(`${apiUrl}/product`)
-      .then((res) => res.json())
-      .then((res) => setProduct(res.data));
+    setTimeout(() => {      
+      fetch(`${apiUrl}/product`)
+        .then((res) => res.json())
+        .then((res) => 
+        setProduct(res.data))
+        setLoading(false);
+    }, 1000);
   }, []);
+  
   return (
     <>
-      <HomeCarousel product={product} />
+    {/* the line below tells HomeCarousel to wait for the data in product before rendering  */}
+      { product && <HomeCarousel product={product} />}
       <HomeWelcome />
-      <ProductGrid product={product} />
+      {loading && <div >Just checking the stockroom...</div>}
+      <ProductGrid product={product} handleLike={handleLike} />
     </>
   );
 };

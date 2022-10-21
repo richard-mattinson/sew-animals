@@ -1,4 +1,4 @@
-const ProductGrid = ({ product }) => {
+const ProductGrid = ({ product, handleLike }) => {
   return (
     <>
       <div className="container product-card">
@@ -7,7 +7,7 @@ const ProductGrid = ({ product }) => {
             <img
               src={product.productImages[0].thumbImage}
               className="card-img-top"
-              alt="..."
+              alt={product.alt}
             />
             <div className="card-body">
               <h5 className="card-title">{product.name}</h5>
@@ -15,6 +15,12 @@ const ProductGrid = ({ product }) => {
                 {product.category}
               </h6>
               <p className="card-text">{product.description}</p>
+              <button type="button" class="btn btn-outline-danger">
+                <i
+                  class="bi bi-heart"
+                  onClick={() => handleLike(product.id)}
+                ></i>
+              </button>
             </div>
           </div>
         ))}

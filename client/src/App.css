@@ -19,6 +19,11 @@ a:active {
   /* align-items: center; */
 }
 
+.loading {
+ text-align: center;
+  font-size: calc(10px + 4vmin);
+}
+
 .navbar {
   padding-bottom: 10px;
   border-bottom: 3px white solid;
@@ -50,6 +55,14 @@ a:active {
   max-width: 600px;
   margin: auto
 }
+
+/* .bi-heart {
+  color: red;
+}
+
+.bi-heart:hover {
+  color: white;
+} */
 
 /* @keyframes App-logo-spin {
   from {

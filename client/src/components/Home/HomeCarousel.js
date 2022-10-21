@@ -1,4 +1,5 @@
 const HomeCarousel = ({ product }) => {
+  // TODO: product array is empty on (and therefore undefined) on refresh.
   console.log("Carousel", product);
   return (
     <div
@@ -37,8 +38,10 @@ const HomeCarousel = ({ product }) => {
           />
           <div className="carousel-caption d-none d-md-block">
             <h5>Guinea Pig Pencil Case</h5>
+            {/* <h5>{product[0].name}</h5> */}
+
             <p>
-              Store all your favorite stationary, while the pigs keep them safe!
+              Store all your favorite stationary, let the pigs keep them safe!
             </p>
           </div>
         </div>
