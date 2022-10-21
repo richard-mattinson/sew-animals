@@ -24,6 +24,8 @@ model Product {
   name String 
   description String
   category String
+  favourite Boolean @default(false)
+  alt String
   productImages ProductImage[]
 }
 

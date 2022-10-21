@@ -10,8 +10,9 @@ async function main() {
     data: {
       name: "Guinea Pig Medical Pencil Case",
       description:
-        "Imagine some really great blurb about ANIMAL and PRODUCT here",
+        "Store all your favorite stationary, while the pigs keep them safe!",
       category: "Pencil Cases",
+      alt: "A pink pencil case depicting guinea pigs dressed in medical attire, other medical equipment such as first aid kits and plasters surround them",
       productImages: {
         create: {
           heroImage:
@@ -24,16 +25,17 @@ async function main() {
       },
     },
     include: {
-      productImages: true
-    }
+      productImages: true,
+    },
   });
 
     const product2 = await prisma.product.create({
       data: {
         name: "Pigeon Face Mask",
         description:
-          "Imagine some really great blurb about ANIMAL and PRODUCT here",
+          "This jolly penguin will keep your face covered from The North Pole to the South!",
         category: "Face Masks",
+        alt: "A blue face mask with black straps. A jolly looking penguin adoring it at various angles, the word 'penguin' in a handwritten font is placed between the penguin multiple times.",
         productImages: {
           create: {
             heroImage:
@@ -54,8 +56,9 @@ async function main() {
         data: {
           name: "Duckling Coin Purse",
           description:
-            "Imagine some really great blurb about ANIMAL and PRODUCT here",
+            "Why should piggy have all the fun? Duckling likes to keep your money safe too!",
           category: "Coin Purses",
+          alt: "A yellow pencil case with orange zip. A yellow duckling with orange beak is collaged across the entire product",
           productImages: {
             create: {
               heroImage:

@@ -1,7 +1,7 @@
 const { Prisma } = require("@prisma/client");
 const prisma = require("../utils/prisma");
 
-// create a new GET request in Insomnia with the route http://localhost:4000/product to test this works
+// http://localhost:4000/product
 const getAllProducts = async (req, res) => {
   try {
     const readProducts = await prisma.product.findMany({
@@ -14,9 +14,8 @@ const getAllProducts = async (req, res) => {
     res.status(500).json({ error: { msg: "500 Fail" } });
   }
 };
-
+// http://localhost:4000/product/:id
 const getProductById = async (req, res) => {
-  console.log("ID", req.params.id);
   const id = Number(req.params.id)
   try {
     const readProduct = await prisma.product.findFirst({
