@@ -3,13 +3,10 @@ import { useState, useEffect } from "react";
 import HomeCarousel from "../components/Home/HomeCarousel";
 import HomeWelcome from "../components/Home/HomeWelcome";
 import ProductGrid from "../components/Products/ProductGrid";
-
-const apiUrl = "http://localhost:4000";
+import useFetch from "../components/Utils/useFetch";
 
 const Home = () => {
-  const [product, setProduct] = useState([]);
-  const [loading, setLoading ] = useState(true)
-  console.log("Home Product", product);
+  const { data: product, loading } = useFetch("product")
 
   const handleLike = (id) => {
     // POST 
@@ -17,23 +14,17 @@ const Home = () => {
     // where id: id 
   }
 
-  // simulating a slow server load to see the loading message
-  useEffect(() => {
-    setTimeout(() => {      
-      fetch(`${apiUrl}/product`)
-        .then((res) => res.json())
-        .then((res) => 
-        setProduct(res.data))
-        setLoading(false);
-    }, 1000);
-  }, []);
-  
   return (
     <>
-    {/* the line below tells HomeCarousel to wait for the data in product before rendering  */}
-      { product && <HomeCarousel product={product} />}
+      {/* the line below tells HomeCarousel to wait for the data in product before rendering  */}
+      {product && 
+      <HomeCarousel product={product} />}
       <HomeWelcome />
-      {loading && <div >Just checking the stockroom...</div>}
+      {loading && (
+        <div className="loading">
+          Just checking the stockroom... <i class="bi bi-clipboard-check"></i>
+        </div>
+      )}
       <ProductGrid product={product} handleLike={handleLike} />
     </>
   );
