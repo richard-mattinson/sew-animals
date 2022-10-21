@@ -47,6 +47,14 @@ a:active {
   /* margin: 100px 50px; */
 }
 
+.card-text {
+  font-size: calc(10px + 1vmin)
+}
+
+.btn-fave {
+  justify-self: center;
+}
+
 .search-bar {
   min-width: 400px;
 }

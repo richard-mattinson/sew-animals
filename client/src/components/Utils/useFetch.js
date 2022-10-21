@@ -9,7 +9,7 @@ const useFetch = (endPoint) => {
   // simulating a slow server load to see the loading message
   useEffect(() => {
     setTimeout(() => {
-      fetch(`${apiUrl}/${endPoint}`)
+      fetch(`${apiUrl}${endPoint}`)
         .then((res) => res.json())
         .then((res) => setData(res.data));
       setLoading(false);
@@ -17,6 +17,5 @@ const useFetch = (endPoint) => {
   }, [endPoint]);
   return { data, loading}
 }
-
 
 export default useFetch

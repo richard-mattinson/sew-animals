@@ -6,7 +6,7 @@ const Nav = () => {
     <nav className="navbar sticky-top navbar-expand-lg bg-white mt-5 mb-0 p-0">
       <div className="container-fluid">
         <Link className="nav-title list-inline-item mx-3" to="/">
-          <img src={Logo} width="200" alt="SEW ANIMALS" />
+          <img src={Logo} width="200" alt="SEW ANIMALS logo" />
         </Link>
         <button
           className="navbar-toggler"

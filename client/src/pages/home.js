@@ -6,7 +6,7 @@ import ProductGrid from "../components/Products/ProductGrid";
 import useFetch from "../components/Utils/useFetch";
 
 const Home = () => {
-  const { data: product, loading } = useFetch("product")
+  const { data: product, loading } = useFetch("/product")
 
   const handleLike = (id) => {
     // POST 

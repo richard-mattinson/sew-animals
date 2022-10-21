@@ -1,21 +1,19 @@
-import { useEffect, useState } from "react";
-
-const apiUrl = "http://localhost:4000";
+import { useParams } from "react-router-dom";
+import useFetch from "../components/Utils/useFetch";
 
 const Product = () => {
-    const [product, setProduct] = useState([])
-    console.log("Product Page", product);
-
-    useEffect(() => {
-        fetch(`${apiUrl}/product/:id`)
-            .then((res) => res.json())
-            .then((res) => setProduct(res.data));
-    }, [])
+  const { id } = useParams()
+  const {data: product, loading } = useFetch(`/product/${id}`)
   return (
     <>
       <div class="container text-center">
+        {loading && (
+          <div className="loading">
+            Just checking the stockroom... <i class="bi bi-clipboard-check"></i>
+          </div>
+        )}
         <div class="row">
-          <div class="col">{product.name}</div>
+          <div class="col">Blog id {id}</div>
           <div class="col">2 of 2</div>
         </div>
         <div class="row">
