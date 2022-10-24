@@ -74,6 +74,14 @@ h3 {
   margin: auto
 }
 
+.nav-item {
+  margin: 5px;
+}
+
+.profile-picture {
+  border-radius: 50%;
+}
+
 /* -------- PRODUCT -------- */
 .container-details {
   margin: 5% 0% 5% 0%;

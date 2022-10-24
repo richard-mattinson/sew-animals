@@ -28,15 +28,15 @@ const Product = () => {
         )}
         <div className="row">
           <div className="col sm-5">
-            <img
-              className="details-img"
-              src={product.productImages[0].detailsImage}
-              alt={product.alt}
-            />
-            {/* {product.length ? (
+            {product.length ? (
+              <img
+                className="details-img"
+                src={product.productImages[0].detailsImage}
+                alt={product.alt}
+              />
             ) : (
               "FIX ME"
-            )} */}
+            )}
           </div>
           <div className="col details-description">
             <div className="row">
