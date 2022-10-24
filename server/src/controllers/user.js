@@ -1,11 +1,10 @@
-const { Prisma } = require("@prisma/client");
 const prisma = require("../utils/prisma");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
-const { createAccessToken, createRefreshToken } = require("./auth");
+// const { createAccessToken, createRefreshToken } = require("./auth");
 
-// create a new POST request in Insomnia with the route http://localhost:3000/user/register to test this works
+// POST http://localhost:3000/user/register
 const createUser = async (req, res) => {
   const { email, password } = req.body;
   const saltRounds = 10;
@@ -16,7 +15,7 @@ const createUser = async (req, res) => {
     if (emailAlreadyRegistered) {
       return res
         .status(400)
-        .json({ error: { msg: "409 - Email address already registered" } });
+        .json({ error: { msg: "400 - Email address already registered" } });
     }
     const hashPassword = await bcrypt.hash(password, saltRounds);
     const createdUser = await prisma.user.create({
@@ -31,6 +30,34 @@ const createUser = async (req, res) => {
   }
 };
 
+const loginUser = async (req, res) => {
+  // POST http://www.localhost:4000/user/login
+  const { username, password } = req.body;
+
+  const foundUser = await prisma.user.findUnique({
+    where: { username: username },
+  });
+  if (!foundUser) {
+    return res.status(401).json({ error: "Invalid username or password." });
+  }
+
+  const passwordsMatch = await bcrypt.compare(password, foundUser.password);
+  if (!passwordsMatch) {
+    return res.status(401).json({ error: "Invalid username or password." });
+  }
+
+  const token = createAccessToken(userCheck.id, userCheck.email);
+  console.log("Server Login Token", token);
+
+  res.status(201).json({ token });
+  const createAccessToken = (id, email) => {
+    return jwt.sign({ id, email }, process.env.JWT_SECRET, {
+      expiresIn: process.env.JWT_EXPIRY,
+    });
+  };
+};
+
 module.exports = {
   createUser,
+  loginUser,
 };
