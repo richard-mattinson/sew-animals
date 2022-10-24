@@ -10,7 +10,7 @@ async function main() {
     data: {
       name: "Guinea Pig Medical Pencil Case",
       description:
-        "Store all your favorite stationary, while the pigs keep them safe!",
+        "Store all your favorite stationery, while the pigs keep them safe!",
       category: "Pencil Cases",
       alt: "A pink pencil case depicting guinea pigs dressed in medical attire, other medical equipment such as first aid kits and plasters surround them",
       productImages: {
