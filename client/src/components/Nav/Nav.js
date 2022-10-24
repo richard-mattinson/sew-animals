@@ -53,7 +53,7 @@ const Nav = () => {
               </li>
               <li className="nav-item">
                 <a className="nav-link" href="/register">
-                  <button class="btn btn-lg btn-success me-2" type="button">
+                  <button class="btn btn-lg btn-primary me-2" type="button">
                     Join
                   </button>
                 </a>

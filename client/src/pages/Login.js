@@ -4,13 +4,13 @@ const Login = () => {
       <form className="sign-in">
         <div class="m-2">
           <p className="text-primary">SIGN IN</p>
-          <label for="exampleInputEmail1" class="form-label">
+          <label for="emailInput" class="form-label">
             Email address
           </label>
           <input
             type="email"
             class="form-control"
-            id="exampleInputEmail1"
+            id="emailInput"
             aria-describedby="emailHelp"
           />
           <div id="emailHelp" class="form-text">
@@ -18,13 +18,13 @@ const Login = () => {
           </div>
         </div>
         <div class="m-2">
-          <label for="exampleInputPassword1" class="form-label">
+          <label for="passwordInput" class="form-label">
             Password
           </label>
           <input
             type="password"
             class="form-control"
-            id="exampleInputPassword1"
+            id="passwordInput"
           />
         </div>
         <div class="mb-2 form-check">

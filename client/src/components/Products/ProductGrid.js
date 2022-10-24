@@ -6,11 +6,10 @@ const ProductGrid = ({ product, handleLike }) => {
       <div className="container product-card">
         {product.map((product) => (
           <div className="card" key={product.id}>
-            {/* TODO: Link to the specific product requested */}
             <Link to={`/product/${product.id}`}>
               <img
-                src={product.productImages[0].thumbImage}
                 className="card-img-top"
+                src={product.productImages[0].thumbImage}
                 alt={product.alt}
               />
             </Link>

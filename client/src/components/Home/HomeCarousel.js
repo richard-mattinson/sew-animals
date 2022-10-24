@@ -1,6 +1,6 @@
 const HomeCarousel = ({ product }) => {
   // TODO: product array is empty on (and therefore undefined) on refresh.
-  console.log("Carousel", product);
+  // console.log("Carousel", product);
   return (
     <div
       id="carouselExampleCaptions"

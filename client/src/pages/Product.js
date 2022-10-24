@@ -1,27 +1,56 @@
 import { useParams } from "react-router-dom";
 import useFetch from "../components/Utils/useFetch";
 
+import ProductGrid from "../components/Products/ProductGrid";
+
 const Product = () => {
-  const { id } = useParams()
-  const {data: product, loading } = useFetch(`/product/${id}`)
+  const { id } = useParams();
+  const { data: productCar } = useFetch("/product");
+  const { data: product, loading } = useFetch(`/product/${id}`);
+  // TODO: Should I be using state here to store the fetched products?
+  // carousel fetch where category = product.category
+  console.log("Product Page", product);
+
+  const handleLike = (id) => {
+    // POST
+    // favourite boolean true
+    // where id: id
+  };
+
   return (
     <>
-      <div class="container text-center">
+      <div className="container text-center container-details">
         {loading && (
           <div className="loading">
-            Just checking the stockroom... <i class="bi bi-clipboard-check"></i>
+            Just checking the stockroom...
+            <i className="bi bi-clipboard-check"></i>
           </div>
         )}
-        <div class="row">
-          <div class="col">Blog id {id}</div>
-          <div class="col">2 of 2</div>
-        </div>
-        <div class="row">
-          <div class="col">1 of 3</div>
-          <div class="col">2 of 3</div>
-          <div class="col">3 of 3</div>
+        <div className="row">
+          <div className="col sm-5">
+            <img
+              className="details-img"
+              src={product.productImages[0].detailsImage}
+              alt={product.alt}
+            />
+            {/* {product.length ? (
+            ) : (
+              "FIX ME"
+            )} */}
+          </div>
+          <div className="col details-description">
+            <div className="row">
+              <h1 className="details-name">{product.name}</h1>
+            </div>
+            <div className="row">
+              <h3 className="details-category">{product.category}</h3>
+            </div>
+            <div className="row">{product.description}</div>
+          </div>
         </div>
       </div>
+      You might also like...
+      <ProductGrid product={productCar} handleLike={handleLike} />
     </>
   );
 };

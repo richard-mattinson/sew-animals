@@ -6,7 +6,10 @@ import ProductGrid from "../components/Products/ProductGrid";
 import useFetch from "../components/Utils/useFetch";
 
 const Home = () => {
+  // TODO: Should I be using state here to store the fetched products? 
   const { data: product, loading } = useFetch("/product")
+  
+  console.log("Home Page", product);
 
   const handleLike = (id) => {
     // POST 
