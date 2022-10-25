@@ -1,11 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 const apiUrl = "http://localhost:4000";
 
 const Login = () => {
   const navigate = useNavigate();
   const [loginData, setLoginData] = useState("");
-  const [loggedIn, setLoggedIn] = useState(false)
+  // const [loggedIn, setLoggedIn] = useState(false)
   console.log("Login State", loginData);
 
   const handleChange = (event) => {
@@ -30,7 +30,7 @@ const Login = () => {
     console.log("Handle Login response", login);
     // below: local storage takes a key/value pair
     localStorage.setItem("token", login.data);
-    setLoggedIn(true)
+    // setLoggedIn(true)
     navigate("/");
   };
 

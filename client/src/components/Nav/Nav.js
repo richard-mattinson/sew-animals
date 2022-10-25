@@ -1,14 +1,21 @@
-import { Link, renderMatches } from "react-router-dom";
-import { useState } from "react";
+import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
 const Logo = "https://drive.google.com/uc?id=1k0BUFLlnXwZ5bhzHhW19uFC0k_722KoK";
 const profilePic =
 "https://drive.google.com/uc?id=1PGUdjGkmhaGXWHHW96iJDF8d_JELJBGM";
 
 const Nav = () => {
-  const localToken = localStorage.getItem("token")
+  const [ logInToken, setLogInToken ] = useState(false)
   const handleLogOut = () => {
     localStorage.removeItem("token")
+    setLogInToken(false)
   }
+    useEffect(() => {
+      const localToken = localStorage.getItem("token")
+      if(localToken){
+        setLogInToken(true)
+      }
+    }, [logInToken]);
 
   return (
     <nav className="navbar sticky-top navbar-expand-lg bg-white mt-5 mb-0 p-0">
@@ -44,11 +51,11 @@ const Nav = () => {
           <span>
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                {localToken ? (
+                {logInToken ? (
                   <Link to="/">
                     <button
                       onClick={() => handleLogOut()}
-                      className="btn btn-lg btn-outline-secondary"
+                      className="btn btn-sm btn-outline-secondary"
                       type="button"
                     >
                       Logout
@@ -66,8 +73,10 @@ const Nav = () => {
                 )}
               </li>
               <li className="nav-item">
-                {localToken ? (
-                  <img src={profilePic} className="profile-picture" width="50" alt="SEW ANIMALS logo" />
+                {logInToken ? (
+                  <div>
+                    <img src={profilePic} className="profile-picture" width="50" alt="Profile" />
+                  </div>
                 ) : (
                   <Link to="/register">
                     <button

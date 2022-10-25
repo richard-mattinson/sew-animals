@@ -49,7 +49,9 @@ const Product = () => {
           </div>
         </div>
       </div>
-      You might also like...
+      <div className="container">
+        You might also like...
+      </div>
       <ProductGrid product={productCar} handleLike={handleLike} />
     </>
   );
