@@ -31,30 +31,33 @@ const createUser = async (req, res) => {
 };
 
 const loginUser = async (req, res) => {
-  // POST http://www.localhost:4000/user/login
-  const { username, password } = req.body;
+  // POST http://localhost:3000/user/login
+  const { email, password } = req.body;
 
-  const foundUser = await prisma.user.findUnique({
-    where: { username: username },
-  });
-  if (!foundUser) {
-    return res.status(401).json({ error: "Invalid username or password." });
-  }
-
-  const passwordsMatch = await bcrypt.compare(password, foundUser.password);
-  if (!passwordsMatch) {
-    return res.status(401).json({ error: "Invalid username or password." });
-  }
-
-  const token = createAccessToken(userCheck.id, userCheck.email);
-  console.log("Server Login Token", token);
-
-  res.status(201).json({ token });
-  const createAccessToken = (id, email) => {
-    return jwt.sign({ id, email }, process.env.JWT_SECRET, {
-      expiresIn: process.env.JWT_EXPIRY,
+  try {
+    const userCheck = await prisma.user.findFirst({
+      where: { email: email },
     });
-  };
+
+    const passwordCheck = await bcrypt.compare(password, userCheck.password);
+
+    if (!passwordCheck) {
+      return res
+        .status(409)
+        .json({ error: { msg: "409 - Incorrect Username or Password" } });
+    }
+
+    const token = createAccessToken(userCheck.id, userCheck.email);
+    return res.status(200).json({ data: token, user: userCheck });
+  } catch (err) {
+    return res.status(500).json({ error: { msg: "500 - Fail" } });
+  }
+};
+
+const createAccessToken = (id, email) => {
+  return jwt.sign({ id, email }, process.env.JWT_SECRET, {
+    expiresIn: process.env.JWT_EXPIRY,
+  });
 };
 
 module.exports = {

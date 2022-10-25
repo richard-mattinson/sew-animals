@@ -3,8 +3,12 @@ const prisma = new PrismaClient();
 
 async function main() {
   const user1 = await prisma.user.create({
-    data: { email: "claire@STARSmail.org.rc", password: "123"},
+    data: { email: "umbrella@STARSmail.org.rc", password: "123"},
   });
+
+  const user1Profile = await prisma.profile.create({
+    data: { userId: user1.id, userName: "Umbrella" }
+  })
 
   const product1 = await prisma.product.create({
     data: {
@@ -29,53 +33,53 @@ async function main() {
     },
   });
 
-    const product2 = await prisma.product.create({
-      data: {
-        name: "Pigeon Face Mask",
-        description:
-          "This jolly penguin will keep your face covered from The North Pole to the South!",
-        category: "Face Masks",
-        alt: "A blue face mask with black straps. A jolly looking penguin adoring it at various angles, the word 'penguin' in a handwritten font is placed between the penguin multiple times.",
-        productImages: {
-          create: {
-            heroImage:
-              "https://drive.google.com/uc?id=1BXmut2QMWPC5Gy9Z7hxcrP6xss6PGhn_",
-            thumbImage:
-              "https://drive.google.com/uc?id=1a9aPixoUXVaAO50XhDinQ4Pp8F0kfj08",
-            detailsImage:
-              "https://drive.google.com/uc?id=13JllFzUug__1C3Fqa7i2M2pp9Bm26XQ5",
-          },
+  const product2 = await prisma.product.create({
+    data: {
+      name: "Pigeon Face Mask",
+      description:
+        "This jolly penguin will keep your face covered from The North Pole to the South!",
+      category: "Face Masks",
+      alt: "A blue face mask with black straps. A jolly looking penguin adoring it at various angles, the word 'penguin' in a handwritten font is placed between the penguin multiple times.",
+      productImages: {
+        create: {
+          heroImage:
+            "https://drive.google.com/uc?id=1BXmut2QMWPC5Gy9Z7hxcrP6xss6PGhn_",
+          thumbImage:
+            "https://drive.google.com/uc?id=1a9aPixoUXVaAO50XhDinQ4Pp8F0kfj08",
+          detailsImage:
+            "https://drive.google.com/uc?id=13JllFzUug__1C3Fqa7i2M2pp9Bm26XQ5",
         },
       },
-      include: {
-        productImages: true,
+    },
+    include: {
+      productImages: true,
+    },
+  });
+
+  const product3 = await prisma.product.create({
+    data: {
+      name: "Duckling Coin Purse",
+      description:
+        "Why should piggy have all the fun? Duckling likes to keep your money safe too!",
+      category: "Coin Purses",
+      alt: "A yellow pencil case with orange zip. A yellow duckling with orange beak is collaged across the entire product",
+      productImages: {
+        create: {
+          heroImage:
+            "https://drive.google.com/uc?id=1HPyHQej4JuEndspEGZMPHcjj4HJ13qy6",
+          thumbImage:
+            "https://drive.google.com/uc?id=1jb5b3bmN3NEj-m8QoQy1z-N11lGfN_Aj",
+          detailsImage:
+            "https://drive.google.com/uc?id=1pI5hHK-4hxMRWcb2Xqj_-KS-N5JvASZh",
+        },
       },
-    });
+    },
+    include: {
+      productImages: true,
+    },
+  });
 
-      const product3 = await prisma.product.create({
-        data: {
-          name: "Duckling Coin Purse",
-          description:
-            "Why should piggy have all the fun? Duckling likes to keep your money safe too!",
-          category: "Coin Purses",
-          alt: "A yellow pencil case with orange zip. A yellow duckling with orange beak is collaged across the entire product",
-          productImages: {
-            create: {
-              heroImage:
-                "https://drive.google.com/uc?id=1HPyHQej4JuEndspEGZMPHcjj4HJ13qy6",
-              thumbImage:
-                "https://drive.google.com/uc?id=1jb5b3bmN3NEj-m8QoQy1z-N11lGfN_Aj",
-              detailsImage:
-                "https://drive.google.com/uc?id=1pI5hHK-4hxMRWcb2Xqj_-KS-N5JvASZh",
-            },
-          },
-        },
-        include: {
-          productImages: true,
-        },
-      });
-
-  console.log({ user1, product1, product2, product3 });
+  console.log({ user1, user1Profile, product1, product2, product3 });
 }
 
 main()
