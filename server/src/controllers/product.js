@@ -1,4 +1,3 @@
-const { Prisma } = require("@prisma/client");
 const prisma = require("../utils/prisma");
 
 // http://localhost:4000/product
@@ -7,6 +6,25 @@ const getAllProducts = async (req, res) => {
     const readProducts = await prisma.product.findMany({
       include: {
         productImages: true,
+        productTags: true,
+      },
+    });
+    return res.status(200).json({ data: readProducts });
+  } catch (err) {
+    res.status(500).json({ error: { msg: "500 Fail" } });
+  }
+};
+// http://localhost:4000/product?category
+const getProductsBySearch = async (req, res) => {
+  const category = req.query
+  try {
+    const readProducts = await prisma.product.findMany({
+      where: {
+        category: category
+      },
+      include: {
+        productImages: true,
+        productTags: true,
       },
     });
     return res.status(200).json({ data: readProducts });
@@ -24,6 +42,7 @@ const getProductById = async (req, res) => {
       },
       include: {
         productImages: true,
+        productTags: true,
       },
     });
     return res.status(200).json({ data: readProduct });
@@ -34,5 +53,6 @@ const getProductById = async (req, res) => {
 
 module.exports = {
   getAllProducts,
+  getProductsBySearch,
   getProductById,
 };

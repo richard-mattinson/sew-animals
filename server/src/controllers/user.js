@@ -6,7 +6,7 @@ const jwt = require("jsonwebtoken");
 
 // POST http://localhost:3000/user/register
 const createUser = async (req, res) => {
-  const { email, password } = req.body;
+  const { email, password, userName, profileImage } = req.body;
   const saltRounds = 10;
   try {
     const emailAlreadyRegistered = await prisma.user.findFirst({
@@ -22,6 +22,8 @@ const createUser = async (req, res) => {
       data: {
         email,
         password: hashPassword,
+        userName,
+        profileImage
       },
     });
     return res.status(201).json({ createdUser });
