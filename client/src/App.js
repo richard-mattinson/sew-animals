@@ -10,7 +10,7 @@ import Nav from "./components/Nav/Nav";
 import "./App.css";
 
 function App() {
-  const [accountPage, isAccountPage] = useState(false)
+  const [accountPage, setAccountPage] = useState(false)
 
   return (
     <div className="App">

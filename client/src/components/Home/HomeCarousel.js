@@ -3,14 +3,14 @@ const HomeCarousel = ({ product }) => {
   // console.log("Carousel", product);
   return (
     <div
-      id="carouselExampleCaptions"
+      id="carouselCaptions"
       className="carousel slide"
-      data-bs-ride="false"
+      data-bs-ride="true"
     >
       <div className="carousel-indicators">
         <button
           type="button"
-          data-bs-target="#carouselExampleCaptions"
+          data-bs-target="#carouselCaptions"
           data-bs-slide-to="0"
           className="active"
           aria-current="true"
@@ -18,13 +18,13 @@ const HomeCarousel = ({ product }) => {
         ></button>
         <button
           type="button"
-          data-bs-target="#carouselExampleCaptions"
+          data-bs-target="#carouselCaptions"
           data-bs-slide-to="1"
           aria-label="Slide 2"
         ></button>
         <button
           type="button"
-          data-bs-target="#carouselExampleCaptions"
+          data-bs-target="#carouselCaptions"
           data-bs-slide-to="2"
           aria-label="Slide 3"
         ></button>
@@ -77,7 +77,7 @@ const HomeCarousel = ({ product }) => {
       <button
         className="carousel-control-prev"
         type="button"
-        data-bs-target="#carouselExampleCaptions"
+        data-bs-target="#carouselCaptions"
         data-bs-slide="prev"
       >
         <span className="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -86,7 +86,7 @@ const HomeCarousel = ({ product }) => {
       <button
         className="carousel-control-next"
         type="button"
-        data-bs-target="#carouselExampleCaptions"
+        data-bs-target="#carouselCaptions"
         data-bs-slide="next"
       >
         <span className="carousel-control-next-icon" aria-hidden="true"></span>

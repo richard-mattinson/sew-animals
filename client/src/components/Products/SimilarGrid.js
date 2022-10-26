@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 
-const ProductGrid = ({ product, handleLike }) => {
-  console.log("Product Grid", product);
+const ProductGrid = ({ product, handleLike}) => {
   return (
     <>
       <div className="container product-card">

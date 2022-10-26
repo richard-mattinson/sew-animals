@@ -16,11 +16,11 @@ h3 {
 }
 
 .App{
-  /* text-align: center; */
   background-color: white;
   color: black;
   font-size: calc(10px + 2vmin);
   min-height: 100vh;
+  /* text-align: center; */
   /* justify-content: center; */
   /* display: flex; */
   /* flex-direction: column; */
@@ -49,6 +49,12 @@ h3 {
   justify-self: center;
 }
 
+.carousel-item{
+    transition: -webkit-transform 3s ease;
+    transition: transform .3s ease;
+    transition: transform .3s ease,-webkit-transform .3s ease;
+} 
+
 /* -------- NAV -------- */
 
 .navbar {
@@ -59,6 +65,11 @@ h3 {
 .nav-title {
   font-size: calc(10px + 3vmin);
   font-family: "Patrick Hand SC", cursive;
+}
+
+.nav-strapline {
+  font-size: calc(10px + 2vmin);
+  line-height: 30px;
 }
 
 .nav-item:hover {
@@ -88,8 +99,12 @@ h3 {
   align-self: center;
 }
 
+.image-holder {
+  max-width: 600px;
+}
+
 .details-img {
-  width: 500px;
+  max-width: 500px;
   border-radius: 2%;
 }
 
@@ -100,6 +115,10 @@ h3 {
 .details-name,
 .details-category {
   padding-left: 0;
+}
+
+.details-category {
+  color: grey
 }
 
 /* .bi-heart {

@@ -13,6 +13,7 @@ const useFetch = (endPoint) => {
       fetch(`${apiUrl}${endPoint}`)
         .then((res) => res.json())
         .then((res) => setData(res.data));
+        window.scrollTo(0, 0);
       setLoading(false);
     // }, 1000);
   }, [endPoint]);
